@@ -2,11 +2,11 @@
 
 **Three towers. One moonlit trail.** Trick-or-Treat TriPeaks is a Halloween solitaire game built around familiar higher-or-lower card chains. Clear the three peaks, keep a candy combo alive, and save a Moon Bridge for the moment your path runs out.
 
-[**GitHub Pages deployment target**](https://ashintop.github.io/halloween-tripeaks/) · [Watch the visual introduction](docs/media/intro.mp4) · [Rules](#how-to-play-tripeaks) · [Embed the game](#embed-halloween-tripeaks)
+[**Play online**](https://halloween-tripeaks.crazy3d.org/) · [Watch the visual introduction](docs/media/intro.mp4) · [Rules](#how-to-play-tripeaks) · [Embed the game](#embed-halloween-tripeaks)
 
-**Deployment status:** GitHub Pages is not live yet. The `ashintop.github.io` links in this document are intended deployment addresses. Use the local-run instructions until the hosted game has been published and verified.
+**Live deployment:** Play on Cloudflare using the link above. The site is deployed from this GitHub repository. Hosting scripts and request logging may be added by Cloudflare independently of the game code.
 
-[Video player and transcript (deployment target)](https://ashintop.github.io/halloween-tripeaks/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
+[Video player and transcript](https://halloween-tripeaks.crazy3d.org/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
 
 [![Halloween TriPeaks gameplay showing three card peaks, a stock pile, the current waste card, and a Moon Bridge meter](docs/images/gameplay.jpg)](docs/media/intro.mp4)
 
@@ -82,11 +82,11 @@ There is no timer pushing you to choose quickly. Plan a longer chain, use a brid
 
 ## Share a reproducible deal
 
-- [Journey 1](https://ashintop.github.io/halloween-tripeaks/?level=1)
-- [Journey 8](https://ashintop.github.io/halloween-tripeaks/?level=8)
-- [Classic seed 12345](https://ashintop.github.io/halloween-tripeaks/?mode=classic&seed=12345)
-- [Today's challenge](https://ashintop.github.io/halloween-tripeaks/?mode=daily)
-- [October 31, 2026 daily deal](https://ashintop.github.io/halloween-tripeaks/?mode=daily&date=2026-10-31)
+- [Journey 1](https://halloween-tripeaks.crazy3d.org/?level=1)
+- [Journey 8](https://halloween-tripeaks.crazy3d.org/?level=8)
+- [Classic seed 12345](https://halloween-tripeaks.crazy3d.org/?mode=classic&seed=12345)
+- [Today's challenge](https://halloween-tripeaks.crazy3d.org/?mode=daily)
+- [October 31, 2026 daily deal](https://halloween-tripeaks.crazy3d.org/?mode=daily&date=2026-10-31)
 
 The Share button copies the chosen journey, seed, or exact daily date. If clipboard access is blocked, a selectable link appears. Explicit daily dates are validated as real calendar dates.
 
@@ -152,7 +152,7 @@ Read the exposed card ranks, compare them with the waste card, and tap a rank on
 
 ```html
 <iframe
-  src="https://ashintop.github.io/halloween-tripeaks/"
+  src="https://halloween-tripeaks.crazy3d.org/"
   title="Trick-or-Treat TriPeaks — Halloween card game"
   width="100%"
   height="654"
@@ -174,11 +174,11 @@ Allocate a real player area after accounting for any parent toolbar. The game au
 
 ## More Halloween games
 
-- **[Haunted FreeCell](https://github.com/AshinTop/halloween-freecell)** — full-deck FreeCell and three verified Lantern Rescue endgames.
-- **[Pumpkin Shift](https://github.com/AshinTop/halloween-pumpkin-shift)** — 12 sliding-number rooms with limited Moon Glides.
-- **[Witch’s Candy Blocks](https://github.com/AshinTop/halloween-block-blast)** — place candy shapes, clear rows, and complete potion orders.
-- **[Pumpkin 2048](https://github.com/AshinTop/halloween-2048)** — classic number merging with a moonlit garden and positional trials.
+- **[Haunted FreeCell](https://halloween-freecell.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-freecell) — full-deck FreeCell and three verified Lantern Rescue endgames.
+- **[Pumpkin Shift](https://halloween-pumpkin-shift.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-pumpkin-shift) — 12 sliding-number rooms with limited Moon Glides.
+- **[Witch’s Candy Blocks](https://halloween-block-blast.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-block-blast) — place candy shapes, clear rows, and complete potion orders.
+- **[Pumpkin 2048](https://halloween-2048.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-2048) — classic number merging with a moonlit garden and positional trials.
 
 ## Credits
 
-Created for **AshinTop** and **Midnight Candy Club**, with AI-assisted design, implementation, and review. The card faces, table illustration, interface, and synthesized sounds were produced for this project. This is an independent TriPeaks implementation, with no implied endorsement by another solitaire publisher. No analytics, advertisements, payments, or remote leaderboard is included.
+Created for **AshinTop** and **Midnight Candy Club**, with AI-assisted design, implementation, and review. The card faces, table illustration, interface, and synthesized sounds were produced for this project. This is an independent TriPeaks implementation, with no implied endorsement by another solitaire publisher. No analytics, advertisements, payments, or remote leaderboard is included in the game source.

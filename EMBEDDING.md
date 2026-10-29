@@ -3,12 +3,12 @@
 推荐站点 **freecell-game.top**。此游戏始终使用有界窗口，自行按 iframe 尺寸排布，主站不应强制锁定竖屏。
 
 ```html
-<iframe src="/games/halloween-tripeaks/" title="Trick-or-Treat TriPeaks" width="100%" height="654" allow="fullscreen" scrolling="no" style="display:block;border:0"></iframe>
+<iframe src="https://halloween-tripeaks.crazy3d.org/" title="Trick-or-Treat TriPeaks" width="100%" height="654" allow="fullscreen" scrolling="no" style="display:block;border:0"></iframe>
 ```
 
 主站桌面游戏区基线 **1160×654 CSS px**；手机使用主站实际分配的高度，扣除外部工具栏。设计窗口：1160×654、390×794、390×650、844×340。原站的 `mobile` / `auto_mobile` 强制比例标志建议关闭。
 
-棋盘按 `ResizeObserver` 自动计算纸牌宽度；短横屏把功能放左侧，让三峰居右。窄屏保留十张底牌的完整布局；450 px 以下窗口优先保留至少 13 px 的左上牌点和至少 10 px 的花色，隐藏重复的右下牌点。较宽窗口仍保留两个牌角。帮助窗口可内部滚动。没有父窗口 DOM 访问或外部请求，存档键与其他游戏隔离。
+棋盘按 `ResizeObserver` 自动计算纸牌宽度；短横屏把功能放左侧，让三峰居右。窄屏保留十张底牌的完整布局；450 px 以下窗口优先保留至少 13 px 的左上牌点和至少 10 px 的花色，隐藏重复的右下牌点。较宽窗口仍保留两个牌角。帮助窗口可内部滚动。游戏代码没有父窗口 DOM 访问或外部请求，存档键与其他游戏隔离。
 
 权限：正常 iframe 仅需脚本；不用指针锁定、摄像头、麦克风或自动播放。若使用 sandbox，可按主站现有策略允许脚本及同源；存储受限时游戏仍能玩，但无法保留成绩。声音默认关闭。
 
