@@ -1,184 +1,105 @@
-# Trick-or-Treat TriPeaks — Halloween Card Game with Moon Bridges
+[English](README.md) | [简体中文](README.zh-CN.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [日本語](README.ja.md)
 
-**Three towers. One moonlit trail.** Trick-or-Treat TriPeaks is a Halloween solitaire game built around familiar higher-or-lower card chains. Clear the three peaks, keep a candy combo alive, and save a Moon Bridge for the moment your path runs out.
+# 🎃 Trick-or-Treat TriPeaks — Halloween Solitaire with Moon Bridges
 
-[**Play online**](https://halloween-tripeaks.crazy3d.org/) · [Watch the visual introduction](docs/media/intro.mp4) · [Rules](#how-to-play-tripeaks) · [Embed the game](#embed-halloween-tripeaks)
+**Three towers, a trail of sweets, and one well-timed moonlit shortcut.** Trick-or-Treat TriPeaks is a Halloween solitaire game made for [FreeCell Game](https://freecell-game.top/). Link higher-or-lower cards, clear the peaks, and earn a Moon Bridge to rescue a difficult chain. Original black-cat Jacks, witch Queens, and pumpkin Kings make the table feel like a small autumn celebration.
 
-**Live deployment:** Play on Cloudflare using the link above. The site is deployed from this GitHub repository. Hosting scripts and request logging may be added by Cloudflare independently of the game code.
+**[Play online](https://halloween-tripeaks.crazy3d.org/)** · [All Halloween games](https://github.com/AshinTop/halloween-games) · [Embedding guide](EMBEDDING.md) · [Design notes](DESIGN.md)
 
-[Video player and transcript](https://halloween-tripeaks.crazy3d.org/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
+**Document languages:** English, 简体中文, Español, Português (Brasil), 日本語. **Game interface:** English and Simplified Chinese only; the other README languages do not add in-game translations.
 
-[![Halloween TriPeaks gameplay showing three card peaks, a stock pile, the current waste card, and a Moon Bridge meter](docs/images/gameplay.jpg)](docs/media/intro.mp4)
+![Halloween TriPeaks solitaire showing three card peaks, stock, waste and a Moon Bridge meter](docs/images/gameplay.jpg)
 
-If you enjoy the card game or want to follow its development, **[star this repository](https://github.com/AshinTop/halloween-tripeaks)**. Reproducible reports with a journey number or shuffled-deal seed are particularly useful.
+## In the deck 👻
 
-## What's in the deck?
+- A complete **52-card deck**: 28 cards in the peaks, 23 in the stock, and one starting waste card.
+- **Eight Journey deals**, each with a verified winning route requiring no stock draws.
+- Reproducible Classic shuffles and a daily challenge based on UTC.
+- Limited Moon Bridges, undo, legal-move hints, stars, local saves, and optional synthesized sound.
 
-- **A complete 52-card game:** 28 cards form the peaks, 23 form the stock, and one starts the waste pile.
-- **Traditional higher-or-lower matching:** remove uncovered cards one rank above or below the waste. Suits do not matter, and Ace connects to King.
-- **Moon Bridges:** earn a limited wildcard-like move through consecutive removals, then spend it on any uncovered card.
-- **Eight Journey deals:** each fixed rescue challenge has a verified 28-removal route with no stock draws.
-- **Classic shuffled deals and a daily challenge:** reproducible seeds and dates make it easy to share a starting position.
-- **Undo, restart, legal-move hints, scoring, and stars.**
-- **Local persistence**, English and Simplified Chinese, optional synthesized sound, and mouse/touch/keyboard controls.
-- **Original Halloween card faces:** black-cat Jacks, witch Queens, and pumpkin Kings on a muted green card table.
+## How to clear the peaks
 
-Made for [FreeCell Game](https://freecell-game.top) and the Midnight Candy Club collection, TriPeaks offers a different rhythm from FreeCell: short card chains, changing visible choices, and carefully timed stock draws.
+Remove an uncovered card that is one rank higher or lower than the waste card. The removed card becomes the new waste. Suits and colors do not matter, and Aces connect to Kings: **K–A–2** is valid. A card remains covered until every card resting on it has been removed. Clear all 28 peak cards to win.
 
-## How to play TriPeaks
+Draw from the stock whenever you choose. Drawing resets the chain. The 23 stock cards are used once, with no redeal. A loss requires all three conditions: the stock is empty, no uncovered card fits, and no Moon Bridge remains.
 
-### Clear the three towers
+Five consecutive normal removals can earn a **Moon Bridge**. Hold one at a time and earn at most two per deal. Select the bridge, then any uncovered card: its rank no longer matters. Covered cards remain unavailable. Using a bridge resets the chain; selecting the bridge again cancels the selection. Undo restores cards, stock, score, and magic.
 
-A card is available only when no remaining card covers it. Remove an available card if its rank is one higher or one lower than the top waste card. That removed card becomes the new waste card.
-
-For example, a 7 can connect to a 6 or an 8. Aces wrap around to Kings, so **K–A–2** is legal. Card color and suit do not affect matching. Clear all 28 tableau cards to win.
-
-### Draw a new path
-
-You may draw the next stock card whenever you choose. The stock has 23 cards and is used once; there is no redeal. Drawing resets the candy chain.
-
-A deal ends when the stock is empty, no uncovered card fits, and no Moon Bridge remains. A full stock or an available bridge means there is still an action you can try. The result screen allows Undo or another attempt.
-
-### Earn and spend Moon Bridges
-
-Five consecutive normal removals without drawing can earn a bridge. You can hold **one at a time** and earn **at most two per deal**. Select Moon Bridge, then select any uncovered card to remove it regardless of rank.
-
-A bridge does not invent an extra card or reveal a covered card. It moves an existing exposed card to the waste, spends the bridge, and resets your chain. Select the bridge again to cancel before choosing a card. Undo restores the complete previous state, including its stock and magic resources.
-
-## Scores and stars
-
-| Event | Result |
-| --- | --- |
-| Normal card removal | 10 points + current chain × 5 |
-| Remove a peak's top card | An additional 50 points |
-| Use a Moon Bridge | Chain resets; the removal scores the 10-point base, plus a peak bonus if applicable |
-| Win without drawing | Three stars |
-| Win with at most five stock draws | Two stars |
-| Any other completed deal | One star |
-
-There is no timer pushing you to choose quickly. Plan a longer chain, use a bridge to rescue a route, or replay a fixed deal to improve your result.
-
-## Three ways to play
-
-**Journey** contains eight named, fixed deals. Each one uses a complete nonduplicated deck and has a tested solution requiring no stock draws. You can choose any journey from the selector.
-
-**Classic** shuffles a full deck from a numeric seed. Selecting Classic again starts a fresh shuffle; Restart restores the same deal. Random classic deals are **not guaranteed to be solvable**.
-
-**Daily** uses the UTC calendar date as its seed. Everyone opening the same date receives the same shuffled deal. Daily deals follow the same rules and are also not guaranteed to be solvable.
+Normal removals score 10 points plus the current chain × 5. Removing a peak’s top card adds 50 points. A bridge removal scores the 10-point base plus any peak bonus. A win earns three stars with no stock draws, two with at most five, and one otherwise. There is no timer.
 
 ## Controls
 
 | Action | Input |
-| --- | --- |
-| Remove an available card | Click/tap it, or use Tab and Enter |
-| Draw from the stock | Click/tap the stock; Space when focus is outside a button/input |
-| Use magic | Select Moon Bridge, then an uncovered card |
-| Undo | **Z** or Undo |
-| Highlight a legal card | Spot a Move |
-| Replay the current layout | Restart |
-| Help, language, sound | Header buttons |
+|---|---|
+| Remove a card | Click / tap, or Tab then Enter |
+| Draw | Stock pile; Space outside a button or input |
+| Use magic | Moon Bridge, then an uncovered card |
+| Undo | Z or Undo |
+| Highlight a legal step | Spot a Move |
+| Replay or change mode | Restart and the mode selector |
 
-**Spot a Move is a legal-step helper, not a full solver.** A highlighted card can be played now, but the hint does not guarantee that this choice leads to a win.
+**Spot a Move checks the next legal action; it is not a full solver.** A playable card does not guarantee a future win.
 
-## Share a reproducible deal
+## Choose and share a deal
 
-- [Journey 1](https://halloween-tripeaks.crazy3d.org/?level=1)
-- [Journey 8](https://halloween-tripeaks.crazy3d.org/?level=8)
-- [Classic seed 12345](https://halloween-tripeaks.crazy3d.org/?mode=classic&seed=12345)
-- [Today's challenge](https://halloween-tripeaks.crazy3d.org/?mode=daily)
-- [October 31, 2026 daily deal](https://halloween-tripeaks.crazy3d.org/?mode=daily&date=2026-10-31)
+[Journey 1](https://halloween-tripeaks.crazy3d.org/?level=1) begins the authored campaign. [Classic seed 12345](https://halloween-tripeaks.crazy3d.org/?mode=classic&seed=12345) shares a shuffle; selecting Classic again creates another, while Restart replays the current one. [A dated daily deal](https://halloween-tripeaks.crazy3d.org/?mode=daily&date=2026-10-31) preserves its exact UTC date.
 
-The Share button copies the chosen journey, seed, or exact daily date. If clipboard access is blocked, a selectable link appears. Explicit daily dates are validated as real calendar dates.
+Current play, best results, and preferences are saved locally. Explicit URL parameters start the requested deal. Undo history lasts for the page session.
 
-## Frequently asked questions
+## FAQ
 
-### Are all eight Journey deals really solvable?
+**Is every deal solvable?** The eight Journey deals have tested solutions. Shuffled Classic and Daily deals are not guaranteed to be solvable.
 
-Yes. Each has an executable full solution exposed to the test suite by `journeyDeal(index).solution`. The tests play all 28 removals and verify that the full deck remains valid throughout. This guarantee applies to the authored Journey deals, not every shuffled Classic or Daily deal.
+**Can a Moon Bridge remove a covered card?** No. It changes rank matching only; the covering rule still applies.
 
-### Why can't I select a covered card?
+**Can I recycle the stock?** No. Draw timing, long chains, and bridge management are the main decisions.
 
-It still has at least one card resting on it. Remove both covering cards to expose it. Moon Bridge ignores rank, not the covering rule.
+## See the game
 
-### Can I recycle the stock?
+![Compact TriPeaks iframe with readable card corners, waste pile and Moon Bridge controls](docs/images/mobile.jpg)
 
-No. The 23 stock cards are drawn once. This makes draw timing and available bridges meaningful choices.
+Actual game interface in a compact browser iframe. This illustrates the layout; it is not a physical-phone performance test.
 
-### What is saved between visits?
+[Watch the 24-second introduction](https://halloween-tripeaks.crazy3d.org/intro.html) · [Download the captioned MP4](docs/media/intro.mp4). This silent visual tour is assembled from actual game screenshots, not a continuous gameplay recording. The screenshots and video show captured interface states and may predate later visual refinements.
 
-Current play, best results, language, and sound preference are stored locally when browser storage is available. Explicit URL parameters start the requested deal instead of restoring a different saved one. Undo history lasts for the page session. There is no account or cross-device synchronization.
+## Embed it on your site
 
-### Can I play on a phone or embed this on my own page?
+```html
+<iframe src="https://halloween-tripeaks.crazy3d.org/"
+  title="Trick-or-Treat TriPeaks"
+  style="display:block;width:100%;height:654px;border:0"
+  allow="fullscreen" allowfullscreen></iframe>
+```
 
-The game supports tapping and computes card size from the available player area. Desktop and short landscape layouts use a side panel; narrow portrait layouts move the tools above the peaks. See [EMBEDDING.md](EMBEDDING.md) for integration notes. Responsive viewport review does not certify every physical phone or browser.
+Cards adapt to the available player area, including desktop, narrow portrait and short landscape layouts. Use a real iframe height; the upper card corners need enough space to read. The game does not access the parent document or require a microphone, camera or pointer lock.
 
-### Does the game use downloaded card images or audio?
+The live site uses Cloudflare and is deployed from this GitHub repository. Give the iframe a real height and leave space for the host toolbar. Fullscreen may be provided by the host. See [EMBEDDING.md](EMBEDDING.md) for the integration contract.
 
-No. Card art is SVG created for the project. Sound is synthesized locally and starts only after it is enabled. There are no runtime CDN assets or external game-player dependencies.
-
-## Run locally and verify
-
-Serve this repository over HTTP:
+## Run locally and check the rules
 
 ```sh
 python3 -m http.server 4173
 ```
 
-Open [http://localhost:4173](http://localhost:4173). No build or dependency installation is needed. JavaScript modules may be restricted if you open `index.html` through `file://`.
-
-Run the tests with Node.js:
+Serve the repository root, then open [http://localhost:4173/](http://localhost:4173/). The game is static: no build or dependency installation is needed. Use HTTP(S), because direct `file://` access can block ES modules. Node.js is required for the tests.
 
 ```sh
 npm test
 ```
 
-For the full list of individual checks:
+The **12 tests** cover all eight Journey solutions, deck uniqueness, card coverage, Ace/King wrapping, stock use, bridge earning and limits, exact loss conditions, reproducible shuffles, date links, and saved-data validation.
 
-```sh
-node tests/engine.test.js
-```
+The game source does not require an account, remote API, advertising SDK, or external asset CDN. Records stay in browser storage; there is no cloud sync. Cloudflare may add its own hosting scripts and request logs. Optional synthesized audio follows browser sound permissions.
 
-The **12 checks** cover all eight Journey solutions, deck uniqueness, cover relationships, Ace/King wrapping, stock behavior, bridge earning and limits, exact loss conditions, deterministic shuffles, corrupt saved data, bounded URL parameters, and calendar-date sharing.
+## More moonlit adventures 🍬
 
-## Compact-player walkthrough
+- [Haunted FreeCell](https://halloween-freecell.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-freecell) — Classic FreeCell and Lantern Rescue endgames.
+- [Pumpkin Shift](https://halloween-pumpkin-shift.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-pumpkin-shift) — Number-sliding rooms with Moon Glides.
+- [Witch’s Candy Blocks](https://halloween-block-blast.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-block-blast) — 8×8 candy-block placement.
+- [Pumpkin 2048](https://halloween-2048.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-2048) — Classic merging and Lantern Trials.
 
-![Halloween TriPeaks in a compact host iframe, with the three peaks, waste card and Moon Bridge controls](docs/images/mobile.jpg)
+## Credits and a little support
 
-Read the exposed card ranks, compare them with the waste card, and tap a rank one higher or lower. The narrow layout prioritizes a readable upper card corner. Use the stock when you need a new rank, or save a Moon Bridge for a difficult choice.
+Created for **AshinTop’s Midnight Candy Club** through human-directed AI collaboration in design, programming, writing, testing, and review. The original artwork and synthesized sounds were made for this project. [Design notes](DESIGN.md) explain its intent.
 
-*Actual interface captured in a browser iframe sized for the host player. This is a compact-window illustration, not a physical-phone test.*
-
-## Embed Halloween TriPeaks
-
-```html
-<iframe
-  src="https://halloween-tripeaks.crazy3d.org/"
-  title="Trick-or-Treat TriPeaks — Halloween card game"
-  width="100%"
-  height="654"
-  scrolling="no"
-  allow="fullscreen"
-  style="display:block;border:0"
-></iframe>
-```
-
-Allocate a real player area after accounting for any parent toolbar. The game automatically resizes its cards and does not access the parent document. It needs scripts, but not a camera, microphone, pointer lock, or automatic audio playback. See [EMBEDDING.md](EMBEDDING.md) for complete guidance.
-
-## Source guide
-
-- `engine.js` — full-deck rules, cover graph, deterministic deals, score, bridge resources, validation.
-- `app.js` — card rendering, input, localization, storage, sound, and sharing.
-- `index.html`, `style.css`, `icon.svg` — original interface and Halloween artwork.
-- `tests/engine.test.js` — executable game and data-validation checks.
-- [DESIGN.md](DESIGN.md) — the intended experience, scoring, and fairness decisions.
-
-## More Halloween games
-
-- **[Haunted FreeCell](https://halloween-freecell.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-freecell) — full-deck FreeCell and three verified Lantern Rescue endgames.
-- **[Pumpkin Shift](https://halloween-pumpkin-shift.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-pumpkin-shift) — 12 sliding-number rooms with limited Moon Glides.
-- **[Witch’s Candy Blocks](https://halloween-block-blast.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-block-blast) — place candy shapes, clear rows, and complete potion orders.
-- **[Pumpkin 2048](https://halloween-2048.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-2048) — classic number merging with a moonlit garden and positional trials.
-
-## Credits
-
-Created for **AshinTop** and **Midnight Candy Club**, with AI-assisted design, implementation, and review. The card faces, table illustration, interface, and synthesized sounds were produced for this project. This is an independent TriPeaks implementation, with no implied endorsement by another solitaire publisher. No analytics, advertisements, payments, or remote leaderboard is included in the game source.
+Enjoyed this little adventure? **[Star Trick-or-Treat TriPeaks on GitHub](https://github.com/AshinTop/halloween-tripeaks)** to save it for later and follow updates. Useful issue reports include the game mode or level, browser, window size, and steps that reproduce the problem. Explore the [complete Halloween collection](https://github.com/AshinTop/halloween-games).
